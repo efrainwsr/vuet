@@ -1,22 +1,12 @@
 <script setup>
 import {ref, onMounted, watch} from 'vue'
-import DataTable from 'datatables.net-vue3';
-import DataTablesCore from 'datatables.net-bs5';
 import Dtable from '../components/Dtable.vue'
-DataTable.use(DataTablesCore);
 
 const data = ref([])
 
-onMounted(async()=>{
-    let res2 = await fetch('http://localhost/api-products/') 
-    data.value = await res2.json()
-    console.log(data.value)
-   })
 
 const options = {
-    responsive: true,
-    ordering: true,
-    select: true,
+
     language:{
       "emptyTable":     "No hay datos disponibles",
       "info":           "Mostrando _START_ a _END_ de _TOTAL_ entradas",
@@ -34,8 +24,19 @@ const options = {
       },
     }
   }
+
+  onMounted(async()=>{
+    let res = await fetch('http://localhost/api-products/') 
+    data.value = await res.json()
+    console.log(data)
+   })
 </script>
 
 <template>
-    <DataTable :data="data" :options="options" :columns="col" />
+    <Dtable :data="data" :options="options">
+      <!-- enlaza la referencia de la tabla a la propiedad ref de DataTable -->
+      <template #default="{ tableRef }">
+        <DataTable :ref="tableRef" />
+      </template>
+    </Dtable>
   </template>

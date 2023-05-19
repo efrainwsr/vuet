@@ -18,19 +18,13 @@ const props = defineProps({
     type: Object,
     default: () => {},
   },
-  col:[
-      {data: 'id', title:'ID'},
-      {data: 'name', title:'Nombre'},
-      {data: 'description', title:'Descripcion'},
-      {data: 'price',title: 'Precio'}
-    ]
+
   
 });
 
 onMounted(() => {
   const table = DataTable(tableRef.value, {
     data: props.data,
-    ...props.options,
   });
 
   // manejar cambios en los datos
@@ -42,6 +36,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <DataTable ref="tableRef"></DataTable>
+  <DataTable :ref="tableRef" />
 </template>
   
