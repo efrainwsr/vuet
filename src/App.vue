@@ -2,6 +2,7 @@
 
 //mport Table from './components/Table.vue'
 import Dtable from './components/Dtable.vue'
+import Clientes from './views/Clientes.vue'
 
 
 </script>
@@ -11,7 +12,7 @@ import Dtable from './components/Dtable.vue'
     <div class="row">
       <div class="col-2"></div>
       <div class="col-8">
-        <Dtable/>
+        <Clientes/>
       </div>
       <div class="col-2"></div>
     </div>
