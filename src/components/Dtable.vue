@@ -33,13 +33,19 @@
   
   
    onMounted(async()=>{
+    let res2 = await fetch('http://localhost/api-products/') 
+    pokemon.value = await res2.json()
+    
+
+    /*
       for(let i =1; i<=10; i++){
           let res = await fetch('https://pokeapi.co/api/v2/pokemon/'+[i])
           let data = await res.json()
           pokemon.value.push(data)
-      }
+      }*/
   })
   
+  /*
   const col = [
       {data: 'name', title:'Nombre'},
       {data: 'weight', title:'Peso'},
@@ -50,7 +56,16 @@
         return data.map(ability => ability.ability.name).join(', ');}
     }
   ]
-  
+  */
+
+  const col = [
+      {data: 'id', title:'ID'},
+      {data: 'name', title:'Nombre'},
+      {data: 'description', title:'Descripcion'},
+      { data: 'price',title: 'Precio'}
+  ]
+
+
   </script>
    
   <template>
