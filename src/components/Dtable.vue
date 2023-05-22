@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch, defineProps } from 'vue';
+import { ref, onMounted, watch, defineProps, toRef } from 'vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesBs5 from 'datatables.net-bs5';
 
@@ -8,8 +8,9 @@ DataTable.use(DataTablesBs5);
 
 
 const props = defineProps({
-	cols:{ type: Array, required: true},
-	data:{type: Array}
+	cols:[],
+	data:[]
+	
 	
 
   /*data: {
@@ -29,7 +30,6 @@ const props = defineProps({
   
 });
 
- 
 	const options = {
 	
 	    language:{
