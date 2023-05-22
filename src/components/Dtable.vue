@@ -3,6 +3,7 @@ import { ref, onMounted, watch, defineProps, toRef } from 'vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesBs5 from 'datatables.net-bs5';
 
+
 // vincular DataTablesBs5 a DataTable
 DataTable.use(DataTablesBs5);
 
